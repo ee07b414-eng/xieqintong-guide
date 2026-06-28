@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>协勤通使用说明</title>
+  <style>
+    :root {
+      --ink: #3b342b;
+      --muted: #767066;
+      --paper: #fbf6ed;
+      --mist: #f1e8d8;
+      --line: #d8cbb4;
+      --brand: #c16a43;
+      --gold: #b08a57;
+      --white: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, var(--mist), var(--paper));
+      line-height: 1.65;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 36px 20px 56px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 28px;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 12px 36px rgba(59, 52, 43, 0.08);
+    }
+    header img {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      box-shadow: 0 8px 22px rgba(59, 52, 43, 0.14);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 34px; }
+    h2 { font-size: 24px; margin-top: 34px; margin-bottom: 14px; }
+    h3 { font-size: 18px; margin-top: 18px; }
+    p { margin: 8px 0; }
+    .muted { color: var(--muted); }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(193, 106, 67, 0.12);
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: rgba(255, 253, 248, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(59, 52, 43, 0.06);
+    }
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 10px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 42px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: white;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 800;
+    }
+    .shots {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    figure {
+      margin: 0;
+      background: rgba(255, 253, 248, 0.74);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px;
+    }
+    figure img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+    figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    .calendar-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .calendar-box {
+      border-radius: 16px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 16px;
+    }
+    .calendar-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .day {
+      min-height: 42px;
+      border-radius: 10px;
+      background: #fffaf1;
+      border: 1px solid #eadcc3;
+      padding: 5px;
+    }
+    .day.planned { background: #faebc6; border-color: var(--gold); }
+    .day.actual { background: var(--brand); color: white; border-color: var(--brand); }
+    .dot-row { display: flex; justify-content: center; gap: 4px; margin-top: 4px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .dot.actual { background: #fff; }
+    .menu-demo {
+      display: grid;
+      gap: 10px;
+      align-content: center;
+    }
+    .menu-item {
+      padding: 13px 14px;
+      border-radius: 12px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+    .warn {
+      border-left: 4px solid var(--brand);
+      padding: 12px 14px;
+      background: rgba(193, 106, 67, 0.08);
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--white);
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f3e7d4; }
+    @media (max-width: 840px) {
+      header, .grid, .calendar-demo { grid-template-columns: 1fr; }
+      .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <img src="assets/app-icon.png" alt="协勤通图标">
+      <div>
+        <span class="badge">业主 / 阿姨 / 团队协作</span>
+        <h1>协勤通使用说明</h1>
+        <p class="muted">适用于 iPhone 版和 Android 版。两端连接同一个家庭/团队后台，任务、收据、申请、沟通、签到和日历会同步。</p>
+      </div>
+    </header>
+
+    <h2>一、快速开始</h2>
+    <div class="grid">
+      <section class="card">
+        <h3>业主创建协作空间</h3>
+        <ol class="steps">
+          <li>打开 App，选择身份为“业主”。</li>
+          <li>填写姓名和家庭/团队名称。</li>
+          <li>点击“业主创建空间”。</li>
+          <li>把生成的邀请码发给阿姨或其他成员。</li>
+        </ol>
+      </section>
+      <section class="card">
+        <h3>阿姨或成员加入</h3>
+        <ol class="steps">
+          <li>打开 App，选择“阿姨”或自定义角色。</li>
+          <li>填写姓名。</li>
+          <li>输入业主给的邀请码。</li>
+          <li>点击“用邀请码加入”。</li>
+        </ol>
+      </section>
+    </div>
+
+    <h2>二、主要页面预览</h2>
+    <div class="shots">
+      <figure>
+        <img src="assets/dashboard.png" alt="首页">
+        <figcaption>首页：邀请码、统计和当天工作</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tasks.png" alt="任务">
+        <figcaption>任务：发布、查看、完成和已读</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/receipts.png" alt="收据">
+        <figcaption>收据：上传、按月统计、修改删除</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/communication.png" alt="沟通">
+        <figcaption>沟通：群聊、私聊、图片消息</figcaption>
+      </figure>
+    </div>
+
+    <h2>三、工作日历</h2>
+    <div class="card calendar-demo">
+      <div class="calendar-box">
+        <div class="calendar-head">
+          <span>2026年6月</span>
+          <span class="muted">预计 12 天 · 实际 10 天</span>
+        </div>
+        <div class="days">
+          <strong>日</strong><strong>一</strong><strong>二</strong><strong>三</strong><strong>四</strong><strong>五</strong><strong>六</strong>
+          <div class="day"></div><div class="day planned">1<div class="dot-row"><span class="dot"></span></div></div><div class="day planned">2<div class="dot-row"><span class="dot"></span></div></div><div class="day actual">3<div class="dot-row"><span class="dot"></span><span class="dot actual"></span></div></div><div class="day">4</div><div class="day planned">5<div class="dot-row"><span class="dot"></span></div></div><div class="day">6</div>
+        </div>
+      </div>
+      <div class="menu-demo">
+        <h3>业主点击某一天后</h3>
+        <div class="menu-item">设置/取消预计工作日</div>
+        <div class="menu-item">手动标记/取消实际工作日</div>
+        <div class="menu-item">查看当天签到记录</div>
+        <p class="muted">预计工作日用于排班；实际工作日来自 GPS 签到，也可以由业主手动补记。手动补记不会伪造成 GPS 签到。</p>
+      </div>
+    </div>
+
+    <h2>四、任务、收据和申请</h2>
+    <table>
+      <tr><th>功能</th><th>业主可以做什么</th><th>阿姨可以做什么</th></tr>
+      <tr><td>工作任务</td><td>发布任务、添加照片、设置提醒、查看已读和完成状态。</td><td>查看任务、查看图片、打勾完成、接收新任务提醒。</td></tr>
+      <tr><td>收据小票</td><td>上传、查看阿姨上传的小票、按月统计金额、修改或删除记录。</td><td>拍照或相册上传小票，识别金额后可更正。</td></tr>
+      <tr><td>申请</td><td>查看请假/采购申请，批准或拒绝，必要时可重新处理。</td><td>提交请假或采购申请，修改自己的申请。</td></tr>
+      <tr><td>沟通</td><td>群聊、私聊、发送图片、撤回或删除自己的消息。</td><td>群聊、私聊、发送图片、保存图片到相册。</td></tr>
+      <tr><td>签到</td><td>查看成员签到记录，在日历中查看某天记录或手动补记实际工作日。</td><td>点击“立即签到”，系统保存时间和定位坐标。</td></tr>
+    </table>
+
+    <h2>五、Android 安装说明</h2>
+    <div class="card">
+      <ol class="steps">
+        <li>把 APK 文件发送到华为或其他 Android 手机。</li>
+        <li>在手机文件管理器或微信下载列表中点开 APK。</li>
+        <li>如果提示“禁止安装未知来源应用”，进入系统设置，允许当前来源安装。</li>
+        <li>安装后打开协勤通，输入同一个邀请码，即可和 iPhone 端同步。</li>
+      </ol>
+      <p class="warn">注意：Android 和 iPhone 必须使用同一个服务器和同一个邀请码。若提示连接失败，先确认手机网络可访问 api.ayi-home.cn。</p>
+    </div>
+
+    <h2>六、常见问题</h2>
+    <div class="grid">
+      <section class="card">
+        <h3>为什么日历上“实际天数”会变？</h3>
+        <p>实际天数由两部分合并计算：GPS 签到日期，以及业主手动标记的实际工作日。同一天只计一次。</p>
+      </section>
+      <section class="card">
+        <h3>手动实际工作日和 GPS 签到有什么区别？</h3>
+        <p>GPS 签到有成员、时间和位置坐标；手动实际工作日只是业主补记工作日期，不包含定位数据。</p>
+      </section>
+      <section class="card">
+        <h3>收据图片为什么要点开才看清？</h3>
+        <p>列表中显示缩略图或占位，点击收据照片可打开大图。这样可以减少流量并提高列表加载速度。</p>
+      </section>
+      <section class="card">
+        <h3>一个业主能管理多个成员吗？</h3>
+        <p>可以。同一个邀请码加入的成员都在同一协作空间内，业主可以看到成员身份、任务操作、收据上传和申请处理记录。</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
