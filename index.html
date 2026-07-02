@@ -193,6 +193,17 @@
       vertical-align: top;
     }
     th { background: #f3e7d4; }
+    .footer-links {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-links a { color: var(--brand); font-weight: 700; }
     @media (max-width: 840px) {
       header, .grid, .calendar-demo { grid-template-columns: 1fr; }
       .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -313,6 +324,13 @@
         <p>可以。同一个邀请码加入的成员都在同一协作空间内，业主可以看到成员身份、任务操作、收据上传和申请处理记录。</p>
       </section>
     </div>
+
+    <footer class="footer-links">
+      <a href="./support.html">技术支持</a>
+      <a href="./privacy.html">隐私政策</a>
+      <a href="./terms.html">使用条款</a>
+      <span>Copyright © 2026 协勤通</span>
+    </footer>
   </main>
 </body>
 </html>
