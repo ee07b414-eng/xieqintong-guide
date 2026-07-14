@@ -1,41 +1,71 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>协勤通技术支持</title>
+  <meta name="description" content="ぬくもり帖／暖居のサポートとお問い合わせ。">
+  <title>ぬくもり帖／暖居 サポート</title>
   <style>
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2028; background: #faf7f0; line-height: 1.7; }
-    main { max-width: 840px; margin: 0 auto; padding: 56px 20px 72px; }
-    h1 { font-size: 34px; margin: 0 0 8px; }
-    h2 { font-size: 20px; margin-top: 34px; }
-    p, li { font-size: 16px; }
-    .card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 8px; padding: 28px; }
-    .muted { color: #666; }
-    a { color: #2563b6; }
+    :root { --paper:#f3efe7; --surface:#fffdf8; --ink:#303633; --muted:#66706a; --matcha:#788c70; --line:#d9d1c5; }
+    * { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Noto Sans CJK JP","Segoe UI",sans-serif; color:var(--ink); background:var(--paper); line-height:1.75; }
+    main { max-width:900px; margin:0 auto; padding:34px 18px 72px; } nav { display:flex; gap:10px; justify-content:flex-end; margin-bottom:14px; }
+    nav a { color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:5px 12px; text-decoration:none; font-size:14px; }
+    .card { background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:clamp(22px,5vw,44px); box-shadow:0 14px 36px rgba(48,54,51,.06); }
+    h1 { font-size:clamp(28px,6vw,40px); line-height:1.25; margin:0 0 8px; } h2 { font-size:21px; margin:34px 0 8px; }
+    details { border-top:1px solid var(--line); padding:14px 0; } summary { cursor:pointer; font-weight:700; }
+    .muted { color:var(--muted); } .contact { background:#edf2ea; border-radius:14px; padding:16px 18px; } a { color:#496645; }
+    hr { border:0; border-top:1px solid var(--line); margin:46px 0; } footer { color:var(--muted); font-size:14px; margin-top:28px; text-align:center; }
   </style>
 </head>
 <body>
   <main>
+    <nav aria-label="Language"><a href="#ja">日本語</a><a href="#zh">中文</a></nav>
     <div class="card">
-      <h1>协勤通技术支持</h1>
-      <p class="muted">家庭和小团队的勤务任务、收据、申请和沟通同步支持。</p>
+      <section id="ja" lang="ja">
+        <h1>ぬくもり帖 サポート</h1>
+        <p class="muted">家のお願いと日々の記録を、この端末の中で整理するためのサポートページです。</p>
 
-      <h2>联系方式</h2>
-      <p>如遇到登录配对、服务器同步、收据识别、任务清单或通知提醒问题，请联系：<a href="mailto:ee07b414@gmail.com">ee07b414@gmail.com</a></p>
+        <div class="contact"><strong>お問い合わせ</strong><br>メール：<a href="mailto:ee07b414@gmail.com">ee07b414@gmail.com</a><br>App名、バージョン、iOSのバージョン、問題が起きた手順をお知らせください。個人情報や機密情報は送らないでください。</div>
 
-      <h2>常见问题</h2>
-      <p><strong>多部手机看不到同一份内容怎么办？</strong><br>请确认设备都可以联网，并且输入的是同一个协作空间邀请码。</p>
-      <p><strong>任务可以修改、删除或指派吗？</strong><br>可以。业主端可在任务页对工作项进行添加、修改、删除和指派，成员完成后打勾同步状态。</p>
-      <p><strong>收据金额识别不准确怎么办？</strong><br>保存前可以手动更正金额；已保存的收据也可以在收据记录中继续更正。</p>
-      <p><strong>提醒没有出现怎么办？</strong><br>请在系统设置中确认协勤通已获得通知权限，并在 App 内确认对应的收据、任务或用药提醒已经开启。</p>
+        <h2>よくある質問</h2>
+        <details open><summary>日本語画面のデータはどこに保存されますか？</summary><p>現在の「ぬくもり帖」で作成したおうち、お願い、記録はこの端末内に保存されます。Appを削除した場合、復元できないことがあります。</p></details>
+        <details><summary>お願いを確認・完了するには？</summary><p>「お願い」または「今日」から項目を開き、「確認しました」または「完了にする」を選びます。</p></details>
+        <details><summary>無料版と買い切り版の違いは？</summary><p>無料版では、お願いと記録を合わせて20件まで追加できます。買い切り版では20件を超えて追加でき、お願いと記録をCSVで書き出せます。その他の機能を解放する商品ではありません。</p></details>
+        <details><summary>買い切り版の価格が表示されません</summary><p>ネットワーク接続とApp Storeへのサインインを確認し、「設定」から買い切り版をもう一度開いてください。商品が販売されている国または地域でのみ、StoreKitが実際の価格を表示します。</p></details>
+        <details><summary>購入内容を復元するには？</summary><p>購入時と同じApple AccountでApp Storeにサインインし、「設定」→「買い切り版を見る」→「購入内容を復元」を選びます。決済や返金はAppleが処理します。</p></details>
+        <details><summary>CSVを書き出すには？</summary><p>買い切り版を購入後、「設定」からCSV書き出しを選びます。CSVには、この端末の日本語画面に保存したお願いと記録が含まれます。</p></details>
+        <details><summary>他の端末や家族と共有できますか？</summary><p>できません。日本語画面は単一端末用で、アカウント、クラウド同期、招待やメンバー共有は提供していません。</p></details>
+        <details><summary>日本語画面は位置情報を使いますか？</summary><p>いいえ。日本語の「ぬくもり帖」画面では位置情報を要求または使用しません。</p></details>
+        <details><summary>この端末のデータを削除するには？</summary><p>「設定」から「この端末のデータを削除」を選び、確認します。この操作は端末内の日本語画面データを削除します。Appleの購入履歴は削除されません。</p></details>
 
-      <h2>隐私政策</h2>
-      <p><a href="./privacy.html">查看协勤通隐私政策</a></p>
+        <h2>ポリシー</h2>
+        <p><a href="./privacy.html">プライバシーポリシー</a><br><a href="./terms.html">利用規約</a><br><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple標準EULA</a></p>
+      </section>
 
-      <h2>使用条款</h2>
-      <p><a href="./terms.html">查看协勤通使用条款</a></p>
+      <hr>
+
+      <section id="zh" lang="zh-Hans">
+        <h1>暖居／ぬくもり帖 技术支持</h1>
+        <p class="muted">用于整理家庭お願い和日常记录的支持页面。</p>
+
+        <div class="contact"><strong>联系方式</strong><br>邮箱：<a href="mailto:ee07b414@gmail.com">ee07b414@gmail.com</a><br>请说明 App 名称、版本、iOS 版本和问题发生步骤。请勿发送个人资料或其他敏感信息。</div>
+
+        <h2>常见问题</h2>
+        <details open><summary>日文界面的数据保存在哪里？</summary><p>当前“ぬくもり帖”创建的家庭、お願い和记录保存在这台设备内。删除 App 后可能无法恢复。</p></details>
+        <details><summary>如何确认或完成お願い？</summary><p>从“お願い”或“今日”打开项目，选择“確認しました”或“完了にする”。</p></details>
+        <details><summary>日文界面的免费版和买断版有什么区别？</summary><p>免费版最多新增 20 条お願い和记录。买断版可以超过 20 条继续新增，并把お願い和记录导出为 CSV，不解锁其他功能。</p></details>
+        <details><summary>为什么买断价格没有显示？</summary><p>请检查网络和 App Store 登录状态，再从设置打开买断页。只有商品在当前国家或地区可售时，StoreKit 才会返回实际价格。</p></details>
+        <details><summary>如何恢复购买？</summary><p>使用购买时相同的 Apple Account 登录 App Store，然后选择“设置”→买断页→“購入内容を復元”。支付和退款由 Apple 处理。</p></details>
+        <details><summary>如何导出 CSV？</summary><p>购买买断版后，从设置选择 CSV 导出。CSV 只包含这台设备日文界面中的お願い和记录。</p></details>
+        <details><summary>可以和其他设备或家人共享吗？</summary><p>不可以。日文界面是单设备应用，不提供账号、云同步、邀请或成员共享。</p></details>
+        <details><summary>日文界面使用位置吗？</summary><p>不使用。日文“ぬくもり帖”界面不会请求或使用位置。</p></details>
+        <details><summary>如何删除这台设备的数据？</summary><p>从设置选择“この端末のデータを削除”并确认。该操作只删除设备上的日文界面数据，不会删除 Apple 购买历史。</p></details>
+
+        <h2>政策</h2>
+        <p><a href="./privacy.html">隐私政策</a><br><a href="./terms.html">使用条款</a><br><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple 标准 EULA</a></p>
+      </section>
     </div>
+    <footer>ぬくもり帖／暖居 · <a href="./privacy.html">Privacy / 隐私</a> · <a href="./terms.html">Terms / 条款</a></footer>
   </main>
 </body>
 </html>
